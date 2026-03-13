@@ -2,6 +2,7 @@
 # runs grid search over model sizes for each architecture
 # saves weights to weights/{model}/ and results to hypersearch_results/{model}/
 
+import os
 import torch
 import torch.nn as nn
 from torch.utils.data import DataLoader
@@ -95,9 +96,11 @@ vit_configs = [
 
 # --- data ---
 
+assert os.path.exists("data/EMNIST"), "EMNIST not found in data/ — run `python -m utils.emnist` first"
+
 transform = transforms.ToTensor()  # PIL -> (1, 28, 28) float [0, 1]
-train_dataset = EMNIST(root="data", split="byclass", train=True, download=True, transform=transform)
-val_dataset = EMNIST(root="data", split="byclass", train=False, download=True, transform=transform)
+train_dataset = EMNIST(root="data", split="byclass", train=True, download=False, transform=transform)
+val_dataset = EMNIST(root="data", split="byclass", train=False, download=False, transform=transform)
 
 train_loader = DataLoader(train_dataset, batch_size=BATCH_SIZE, shuffle=True, num_workers=4, pin_memory=True)
 val_loader = DataLoader(val_dataset, batch_size=BATCH_SIZE, shuffle=False, num_workers=4, pin_memory=True)
