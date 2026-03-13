@@ -3,6 +3,7 @@
 # saves weights to weights/{model}/ and results to hypersearch_results/{model}/
 
 import os
+from itertools import product
 import torch
 import torch.nn as nn
 from torch.utils.data import DataLoader
@@ -53,44 +54,41 @@ def build_cnn(config):
     return CNN(in_channels=IN_CHANNELS, num_classes=NUM_CLASSES, channels=channels)
 
 def build_vit(config):
+    visual_dim = config["visual_dim"]
+    # head_dim=16 for all sizes, must be even for RoPE half-split
+    num_heads = visual_dim // 16
+    mlp_dim = visual_dim * 4
     vit = ViT(
         img_size=IMG_SIZE,
         patch_size=4,  # 28/4 = 7x7 grid = 49 patches
         in_channels=IN_CHANNELS,
-        visual_dim=config["visual_dim"],
+        visual_dim=visual_dim,
         num_layers=config["num_layers"],
-        num_q_heads=config["num_heads"],
-        num_kv_heads=config["num_heads"],
-        mlp_dim=config["mlp_dim"],
+        num_q_heads=num_heads,
+        num_kv_heads=num_heads,
+        mlp_dim=mlp_dim,
     )
-    return ViTClassifier(vit, config["visual_dim"], NUM_CLASSES)
+    return ViTClassifier(vit, visual_dim, NUM_CLASSES)
 
 
-# --- configs (small -> large, evenly spaced) ---
+# --- configs (complete grids, every combination) ---
 
+# 4 widths × 3 depths = 12 configs
 mlp_configs = [
-    {"hidden_dim": 64,  "num_layers": 1},
-    {"hidden_dim": 128, "num_layers": 2},
-    {"hidden_dim": 256, "num_layers": 2},
-    {"hidden_dim": 512, "num_layers": 2},
-    {"hidden_dim": 512, "num_layers": 3},
+    {"hidden_dim": h, "num_layers": n}
+    for h, n in product([64, 128, 256, 512], [1, 2, 3])
 ]
 
+# 3 widths × 3 depths = 9 configs
 cnn_configs = [
-    {"base_channels": 16, "num_blocks": 2},   # (16, 32)
-    {"base_channels": 32, "num_blocks": 2},   # (32, 64)
-    {"base_channels": 32, "num_blocks": 3},   # (32, 64, 128)
-    {"base_channels": 64, "num_blocks": 2},   # (64, 128)
-    {"base_channels": 64, "num_blocks": 3},   # (64, 128, 256)
+    {"base_channels": c, "num_blocks": b}
+    for c, b in product([16, 32, 64], [2, 3, 4])
 ]
 
-# visual_dim must be divisible by num_heads, and head_dim must be even (for RoPE half-split)
+# 3 widths × 3 depths = 9 configs (num_heads and mlp_dim derived in build_vit)
 vit_configs = [
-    {"visual_dim": 64,  "num_layers": 2, "num_heads": 4, "mlp_dim": 256},
-    {"visual_dim": 64,  "num_layers": 4, "num_heads": 4, "mlp_dim": 256},
-    {"visual_dim": 128, "num_layers": 4, "num_heads": 4, "mlp_dim": 512},
-    {"visual_dim": 128, "num_layers": 6, "num_heads": 8, "mlp_dim": 512},
-    {"visual_dim": 256, "num_layers": 6, "num_heads": 8, "mlp_dim": 1024},
+    {"visual_dim": d, "num_layers": n}
+    for d, n in product([64, 128, 256], [2, 4, 6])
 ]
 
 

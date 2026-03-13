@@ -136,24 +136,34 @@ def simple_train(
 
 
 def simple_eval(model, dataloader):
-    # returns avg loss across entire dataloader
+    # classification: returns accuracy (0-1)
+    # self-supervised: returns avg loss
     model.eval()
+    total_correct = 0
+    total_samples = 0
     total_loss = 0.0
     num_batches = 0
+    # detect mode from first batch
+    is_classification = None
 
     with torch.no_grad():
         for batch in dataloader:
             if isinstance(batch, (list, tuple)):
+                is_classification = True
                 inputs = batch[0].cuda().bfloat16()
                 labels = batch[1].cuda()
                 logits = model(inputs)
-                loss = F.cross_entropy(logits, labels)
+                total_correct += (logits.argmax(dim=-1) == labels).sum().item()
+                total_samples += labels.size(0)
             else:
+                is_classification = False
                 batch = batch.cuda()
                 out = model(batch, labels=batch)
                 loss = out[1] if isinstance(out, tuple) else out
-            total_loss += loss.item()
-            num_batches += 1
+                total_loss += loss.item()
+                num_batches += 1
 
     model.train()
+    if is_classification:
+        return total_correct / total_samples
     return total_loss / num_batches

@@ -75,14 +75,14 @@ def hypersearch(
         )
         train_time = time.time() - start_time
 
-        val_loss = simple_eval(model, val_loader)
-        print(f"Train loss: {train_loss:.4f} | Val loss: {val_loss:.4f} | Time: {train_time:.1f}s")
+        val_acc = simple_eval(model, val_loader)
+        print(f"Train loss: {train_loss:.4f} | Val acc: {val_acc:.4f} | Time: {train_time:.1f}s")
 
         result = {
             'config': config,
             'params': num_params,
             'train_loss': round(train_loss, 4),
-            'val_loss': round(val_loss, 4),
+            'val_acc': round(val_acc, 4),
             'train_time': round(train_time, 1),
         }
         results.append(result)
@@ -100,10 +100,10 @@ def hypersearch(
     print("HYPERSEARCH COMPLETE")
     print(f"{'='*60}")
 
-    by_val = sorted(results, key=lambda x: x['val_loss'])
-    print("\nResults (sorted by val loss):")
+    by_val = sorted(results, key=lambda x: x['val_acc'], reverse=True)
+    print("\nResults (sorted by val accuracy):")
     for r in by_val:
-        print(f"  {r['config']} | val: {r['val_loss']:.4f} | train: {r['train_loss']:.4f} | params: {r['params']:,}")
+        print(f"  {r['config']} | val_acc: {r['val_acc']:.4f} | train_loss: {r['train_loss']:.4f} | params: {r['params']:,}")
 
     plot_results(results, metadata_folder)
     return results
@@ -124,24 +124,24 @@ def plot_results(results, metadata_folder):
 
     dims.append(dict(label='params', values=[r['params'] for r in results]))
 
-    val_losses = [r['val_loss'] for r in results]
-    dims.append(dict(label='val_loss', values=val_losses, range=[min(val_losses), max(val_losses)]))
+    val_accs = [r['val_acc'] for r in results]
+    dims.append(dict(label='val_acc', values=val_accs, range=[min(val_accs), max(val_accs)]))
 
     fig = go.Figure()
     fig.add_trace(go.Parcoords(
         line=dict(
-            color=val_losses,
-            # green = low loss (good), red = high loss (bad)
-            colorscale='RdYlGn_r',
+            color=val_accs,
+            # green = high accuracy (good), red = low accuracy (bad)
+            colorscale='RdYlGn',
             showscale=True,
-            cmin=min(val_losses),
-            cmax=max(val_losses),
+            cmin=min(val_accs),
+            cmax=max(val_accs),
         ),
         dimensions=dims,
     ))
 
     fig.update_layout(
-        title='Hypersearch Results (color = val loss, green = better)',
+        title='Hypersearch Results (color = val accuracy, green = better)',
         font=dict(size=14),
         paper_bgcolor='#1e1e1e',
         plot_bgcolor='#1e1e1e',
