@@ -82,7 +82,7 @@ mlp_configs = [
 # 5 widths × 4 depths = 20 configs
 cnn_configs = [
     {"base_channels": c, "num_blocks": b}
-    for c, b in product([16, 32, 48, 64, 80], [2, 3, 4, 5])
+    for c, b in product([16, 32, 48, 64, 80], [2, 3, 4])
 ]
 
 # 5 widths × 4 depths = 20 configs (num_heads and mlp_dim derived in build_vit)
