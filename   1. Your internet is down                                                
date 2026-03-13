@@ -1,0 +1,5 @@
+and the repository exists.
+(venv) weighty@weighty-MS-7E51:~/Desktop/emnistInterp$ cat ~/.ssh/config
+Host github.com
+	IdentityFile ~/.ssh/id_ed25519
+(venv) weighty@weighty-MS-7E51:~/Desktop/emnistInterp$ 

@@ -73,22 +73,23 @@ def build_vit(config):
 
 # --- configs (complete grids, every combination) ---
 
-# 4 widths × 3 depths = 12 configs
+# 5 widths × 4 depths = 20 configs
 mlp_configs = [
     {"hidden_dim": h, "num_layers": n}
-    for h, n in product([64, 128, 256, 512], [1, 2, 3])
+    for h, n in product([64, 128, 192, 256, 320], [1, 2, 3, 4])
 ]
 
-# 3 widths × 3 depths = 9 configs
+# 5 widths × 4 depths = 20 configs
 cnn_configs = [
     {"base_channels": c, "num_blocks": b}
-    for c, b in product([16, 32, 64], [2, 3, 4])
+    for c, b in product([16, 32, 48, 64, 80], [2, 3, 4, 5])
 ]
 
-# 3 widths × 3 depths = 9 configs (num_heads and mlp_dim derived in build_vit)
+# 5 widths × 4 depths = 20 configs (num_heads and mlp_dim derived in build_vit)
+# visual_dim must be divisible by 16 (head_dim=16 for RoPE)
 vit_configs = [
     {"visual_dim": d, "num_layers": n}
-    for d, n in product([64, 128, 256], [2, 4, 6])
+    for d, n in product([64, 128, 192, 256, 320], [1, 2, 3, 4])
 ]
 
 
