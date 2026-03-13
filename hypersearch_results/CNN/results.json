@@ -5,8 +5,8 @@
       "num_blocks": 2
     },
     "params": 6942,
-    "train_loss": 3.3601,
-    "val_acc": 0.2281,
+    "train_loss": 3.3163,
+    "val_acc": 0.2297,
     "train_time": 7.7
   },
   {
@@ -15,8 +15,8 @@
       "num_blocks": 3
     },
     "params": 27550,
-    "train_loss": 1.9599,
-    "val_acc": 0.626,
+    "train_loss": 1.9162,
+    "val_acc": 0.6352,
     "train_time": 8.2
   },
   {
@@ -25,8 +25,8 @@
       "num_blocks": 4
     },
     "params": 105630,
-    "train_loss": 0.5572,
-    "val_acc": 0.8538,
+    "train_loss": 0.5577,
+    "val_acc": 0.8546,
     "train_time": 8.8
   },
   {
@@ -35,9 +35,9 @@
       "num_blocks": 2
     },
     "params": 23038,
-    "train_loss": 3.0008,
-    "val_acc": 0.3379,
-    "train_time": 7.6
+    "train_loss": 2.985,
+    "val_acc": 0.3185,
+    "train_time": 7.9
   },
   {
     "config": {
@@ -45,9 +45,9 @@
       "num_blocks": 3
     },
     "params": 101118,
-    "train_loss": 1.1987,
-    "val_acc": 0.7779,
-    "train_time": 8.4
+    "train_loss": 1.1804,
+    "val_acc": 0.7786,
+    "train_time": 8.3
   },
   {
     "config": {
@@ -55,9 +55,39 @@
       "num_blocks": 4
     },
     "params": 404734,
-    "train_loss": 0.4355,
-    "val_acc": 0.8665,
+    "train_loss": 0.4342,
+    "val_acc": 0.8644,
     "train_time": 9.4
+  },
+  {
+    "config": {
+      "base_channels": 48,
+      "num_blocks": 2
+    },
+    "params": 48350,
+    "train_loss": 2.7441,
+    "val_acc": 0.3676,
+    "train_time": 8.3
+  },
+  {
+    "config": {
+      "base_channels": 48,
+      "num_blocks": 3
+    },
+    "params": 220766,
+    "train_loss": 0.8785,
+    "val_acc": 0.8196,
+    "train_time": 9.9
+  },
+  {
+    "config": {
+      "base_channels": 48,
+      "num_blocks": 4
+    },
+    "params": 897374,
+    "train_loss": 0.4075,
+    "val_acc": 0.8699,
+    "train_time": 11.7
   },
   {
     "config": {
@@ -65,9 +95,9 @@
       "num_blocks": 2
     },
     "params": 82878,
-    "train_loss": 2.6022,
-    "val_acc": 0.4285,
-    "train_time": 9.0
+    "train_loss": 2.601,
+    "val_acc": 0.4318,
+    "train_time": 8.9
   },
   {
     "config": {
@@ -75,9 +105,9 @@
       "num_blocks": 3
     },
     "params": 386494,
-    "train_loss": 0.7196,
-    "val_acc": 0.8363,
-    "train_time": 11.4
+    "train_loss": 0.7106,
+    "val_acc": 0.8406,
+    "train_time": 11.5
   },
   {
     "config": {
@@ -85,8 +115,38 @@
       "num_blocks": 4
     },
     "params": 1583550,
-    "train_loss": 0.3953,
-    "val_acc": 0.8719,
+    "train_loss": 0.3937,
+    "val_acc": 0.8715,
     "train_time": 12.7
+  },
+  {
+    "config": {
+      "base_channels": 80,
+      "num_blocks": 2
+    },
+    "params": 126622,
+    "train_loss": 2.4483,
+    "val_acc": 0.4432,
+    "train_time": 10.5
+  },
+  {
+    "config": {
+      "base_channels": 80,
+      "num_blocks": 3
+    },
+    "params": 598302,
+    "train_loss": 0.6309,
+    "val_acc": 0.8455,
+    "train_time": 13.0
+  },
+  {
+    "config": {
+      "base_channels": 80,
+      "num_blocks": 4
+    },
+    "params": 2463262,
+    "train_loss": 0.3909,
+    "val_acc": 0.8723,
+    "train_time": 15.7
   }
 ]

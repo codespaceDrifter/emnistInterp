@@ -2,12 +2,32 @@
   {
     "config": {
       "visual_dim": 64,
+      "num_layers": 1
+    },
+    "params": 71422,
+    "train_loss": 2.3083,
+    "val_acc": 0.4648,
+    "train_time": 11.6
+  },
+  {
+    "config": {
+      "visual_dim": 64,
       "num_layers": 2
     },
     "params": 137662,
-    "train_loss": 1.7474,
-    "val_acc": 0.697,
-    "train_time": 17.3
+    "train_loss": 1.7945,
+    "val_acc": 0.6817,
+    "train_time": 17.5
+  },
+  {
+    "config": {
+      "visual_dim": 64,
+      "num_layers": 3
+    },
+    "params": 203902,
+    "train_loss": 1.5175,
+    "val_acc": 0.7683,
+    "train_time": 22.5
   },
   {
     "config": {
@@ -15,19 +35,19 @@
       "num_layers": 4
     },
     "params": 270142,
-    "train_loss": 1.4235,
-    "val_acc": 0.7917,
-    "train_time": 27.3
+    "train_loss": 1.4867,
+    "val_acc": 0.7769,
+    "train_time": 27.7
   },
   {
     "config": {
-      "visual_dim": 64,
-      "num_layers": 6
+      "visual_dim": 128,
+      "num_layers": 1
     },
-    "params": 402622,
-    "train_loss": 1.3946,
-    "val_acc": 0.8124,
-    "train_time": 38.9
+    "params": 273854,
+    "train_loss": 1.4621,
+    "val_acc": 0.6812,
+    "train_time": 11.8
   },
   {
     "config": {
@@ -35,9 +55,19 @@
       "num_layers": 2
     },
     "params": 537406,
-    "train_loss": 0.8343,
-    "val_acc": 0.8368,
-    "train_time": 19.0
+    "train_loss": 0.836,
+    "val_acc": 0.8382,
+    "train_time": 19.1
+  },
+  {
+    "config": {
+      "visual_dim": 128,
+      "num_layers": 3
+    },
+    "params": 800958,
+    "train_loss": 0.7248,
+    "val_acc": 0.8476,
+    "train_time": 24.3
   },
   {
     "config": {
@@ -45,19 +75,59 @@
       "num_layers": 4
     },
     "params": 1064510,
-    "train_loss": 0.6975,
-    "val_acc": 0.8546,
-    "train_time": 30.4
+    "train_loss": 0.7061,
+    "val_acc": 0.8548,
+    "train_time": 30.6
   },
   {
     "config": {
-      "visual_dim": 128,
-      "num_layers": 6
+      "visual_dim": 192,
+      "num_layers": 1
     },
-    "params": 1591614,
-    "train_loss": 0.64,
-    "val_acc": 0.8561,
-    "train_time": 43.3
+    "params": 607358,
+    "train_loss": 0.9908,
+    "val_acc": 0.7896,
+    "train_time": 13.1
+  },
+  {
+    "config": {
+      "visual_dim": 192,
+      "num_layers": 2
+    },
+    "params": 1199294,
+    "train_loss": 0.5851,
+    "val_acc": 0.8541,
+    "train_time": 22.0
+  },
+  {
+    "config": {
+      "visual_dim": 192,
+      "num_layers": 3
+    },
+    "params": 1791230,
+    "train_loss": 0.5713,
+    "val_acc": 0.8594,
+    "train_time": 29.4
+  },
+  {
+    "config": {
+      "visual_dim": 192,
+      "num_layers": 4
+    },
+    "params": 2383166,
+    "train_loss": 0.5521,
+    "val_acc": 0.8624,
+    "train_time": 37.4
+  },
+  {
+    "config": {
+      "visual_dim": 256,
+      "num_layers": 1
+    },
+    "params": 1071934,
+    "train_loss": 0.7393,
+    "val_acc": 0.8273,
+    "train_time": 15.0
   },
   {
     "config": {
@@ -65,9 +135,19 @@
       "num_layers": 2
     },
     "params": 2123326,
-    "train_loss": 0.5257,
-    "val_acc": 0.8579,
-    "train_time": 25.1
+    "train_loss": 0.5192,
+    "val_acc": 0.8607,
+    "train_time": 25.2
+  },
+  {
+    "config": {
+      "visual_dim": 256,
+      "num_layers": 3
+    },
+    "params": 3174718,
+    "train_loss": 0.5166,
+    "val_acc": 0.8637,
+    "train_time": 35.1
   },
   {
     "config": {
@@ -75,18 +155,48 @@
       "num_layers": 4
     },
     "params": 4226110,
-    "train_loss": 0.5203,
-    "val_acc": 0.8628,
+    "train_loss": 0.5122,
+    "val_acc": 0.8635,
     "train_time": 45.1
   },
   {
     "config": {
-      "visual_dim": 256,
-      "num_layers": 6
+      "visual_dim": 320,
+      "num_layers": 1
     },
-    "params": 6328894,
-    "train_loss": 0.5116,
-    "val_acc": 0.8662,
-    "train_time": 65.4
+    "params": 1667582,
+    "train_loss": 0.6581,
+    "val_acc": 0.8409,
+    "train_time": 18.3
+  },
+  {
+    "config": {
+      "visual_dim": 320,
+      "num_layers": 2
+    },
+    "params": 3309502,
+    "train_loss": 0.493,
+    "val_acc": 0.8615,
+    "train_time": 30.6
+  },
+  {
+    "config": {
+      "visual_dim": 320,
+      "num_layers": 3
+    },
+    "params": 4951422,
+    "train_loss": 0.5118,
+    "val_acc": 0.864,
+    "train_time": 43.5
+  },
+  {
+    "config": {
+      "visual_dim": 320,
+      "num_layers": 4
+    },
+    "params": 6593342,
+    "train_loss": 0.5001,
+    "val_acc": 0.865,
+    "train_time": 56.3
   }
 ]
