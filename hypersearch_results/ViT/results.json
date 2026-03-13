@@ -1,0 +1,92 @@
+[
+  {
+    "config": {
+      "visual_dim": 64,
+      "num_layers": 2
+    },
+    "params": 137662,
+    "train_loss": 1.7474,
+    "val_acc": 0.697,
+    "train_time": 17.3
+  },
+  {
+    "config": {
+      "visual_dim": 64,
+      "num_layers": 4
+    },
+    "params": 270142,
+    "train_loss": 1.4235,
+    "val_acc": 0.7917,
+    "train_time": 27.3
+  },
+  {
+    "config": {
+      "visual_dim": 64,
+      "num_layers": 6
+    },
+    "params": 402622,
+    "train_loss": 1.3946,
+    "val_acc": 0.8124,
+    "train_time": 38.9
+  },
+  {
+    "config": {
+      "visual_dim": 128,
+      "num_layers": 2
+    },
+    "params": 537406,
+    "train_loss": 0.8343,
+    "val_acc": 0.8368,
+    "train_time": 19.0
+  },
+  {
+    "config": {
+      "visual_dim": 128,
+      "num_layers": 4
+    },
+    "params": 1064510,
+    "train_loss": 0.6975,
+    "val_acc": 0.8546,
+    "train_time": 30.4
+  },
+  {
+    "config": {
+      "visual_dim": 128,
+      "num_layers": 6
+    },
+    "params": 1591614,
+    "train_loss": 0.64,
+    "val_acc": 0.8561,
+    "train_time": 43.3
+  },
+  {
+    "config": {
+      "visual_dim": 256,
+      "num_layers": 2
+    },
+    "params": 2123326,
+    "train_loss": 0.5257,
+    "val_acc": 0.8579,
+    "train_time": 25.1
+  },
+  {
+    "config": {
+      "visual_dim": 256,
+      "num_layers": 4
+    },
+    "params": 4226110,
+    "train_loss": 0.5203,
+    "val_acc": 0.8628,
+    "train_time": 45.1
+  },
+  {
+    "config": {
+      "visual_dim": 256,
+      "num_layers": 6
+    },
+    "params": 6328894,
+    "train_loss": 0.5116,
+    "val_acc": 0.8662,
+    "train_time": 65.4
+  }
+]

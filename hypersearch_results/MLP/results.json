@@ -1,0 +1,122 @@
+[
+  {
+    "config": {
+      "hidden_dim": 64,
+      "num_layers": 1
+    },
+    "params": 54398,
+    "train_loss": 1.8669,
+    "val_acc": 0.6161,
+    "train_time": 5.8
+  },
+  {
+    "config": {
+      "hidden_dim": 64,
+      "num_layers": 2
+    },
+    "params": 58686,
+    "train_loss": 1.5869,
+    "val_acc": 0.6845,
+    "train_time": 5.5
+  },
+  {
+    "config": {
+      "hidden_dim": 64,
+      "num_layers": 3
+    },
+    "params": 62974,
+    "train_loss": 1.4891,
+    "val_acc": 0.7084,
+    "train_time": 5.6
+  },
+  {
+    "config": {
+      "hidden_dim": 128,
+      "num_layers": 1
+    },
+    "params": 108734,
+    "train_loss": 1.3825,
+    "val_acc": 0.692,
+    "train_time": 5.6
+  },
+  {
+    "config": {
+      "hidden_dim": 128,
+      "num_layers": 2
+    },
+    "params": 125502,
+    "train_loss": 1.0408,
+    "val_acc": 0.7758,
+    "train_time": 5.6
+  },
+  {
+    "config": {
+      "hidden_dim": 128,
+      "num_layers": 3
+    },
+    "params": 142270,
+    "train_loss": 0.9227,
+    "val_acc": 0.8025,
+    "train_time": 5.6
+  },
+  {
+    "config": {
+      "hidden_dim": 256,
+      "num_layers": 1
+    },
+    "params": 217406,
+    "train_loss": 1.0708,
+    "val_acc": 0.7466,
+    "train_time": 5.5
+  },
+  {
+    "config": {
+      "hidden_dim": 256,
+      "num_layers": 2
+    },
+    "params": 283710,
+    "train_loss": 0.7112,
+    "val_acc": 0.8277,
+    "train_time": 5.6
+  },
+  {
+    "config": {
+      "hidden_dim": 256,
+      "num_layers": 3
+    },
+    "params": 350014,
+    "train_loss": 0.6305,
+    "val_acc": 0.8398,
+    "train_time": 5.6
+  },
+  {
+    "config": {
+      "hidden_dim": 512,
+      "num_layers": 1
+    },
+    "params": 434750,
+    "train_loss": 0.8161,
+    "val_acc": 0.7961,
+    "train_time": 5.6
+  },
+  {
+    "config": {
+      "hidden_dim": 512,
+      "num_layers": 2
+    },
+    "params": 698430,
+    "train_loss": 0.5571,
+    "val_acc": 0.8464,
+    "train_time": 5.6
+  },
+  {
+    "config": {
+      "hidden_dim": 512,
+      "num_layers": 3
+    },
+    "params": 962110,
+    "train_loss": 0.511,
+    "val_acc": 0.8504,
+    "train_time": 5.6
+  }
+]
