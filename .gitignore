@@ -1,0 +1,10 @@
+venv
+__pycache__
+
+data
+weights
+results
+
+*.pt
+*.pyc
+*.png

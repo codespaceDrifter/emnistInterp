@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EMNIST Interp</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="highlight-controls">
+        <label><input type="checkbox" id="highlight-toggle"> Highlight bright pixels red</label>
+    </div>
+    <div class="tabs">
+        <button class="tab active" data-tab="draw">Draw</button>
+        <button class="tab" data-tab="mlp-weights">MLP Weights</button>
+        <button class="tab" data-tab="mlp-attrib">MLP Attribution</button>
+        <button class="tab" data-tab="mlp-sae">MLP SAE</button>
+        <button class="tab" data-tab="sae-attrib">SAE Attribution</button>
+    </div>
+
+    <div class="tab-content active" id="tab-draw">
+        <div class="container">
+            <div class="left">
+                <canvas id="canvas" width="420" height="420"></canvas>
+                <div class="canvas-controls">
+                    <button id="clear-btn">Clear</button>
+                    <button id="predict-btn">Predict</button>
+                </div>
+            </div>
+            <div class="right">
+                <div class="controls">
+                    <label>Load Sample</label>
+                    <div class="sample-row">
+                        <input id="sample-class" type="text" maxlength="1" value="A" />
+                        <input id="sample-index" type="number" value="0" min="0" />
+                        <button id="load-sample-btn">Load</button>
+                    </div>
+                </div>
+                <div class="results" id="results"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="tab-content" id="tab-mlp-attrib">
+        <div class="attrib-top">
+            <canvas id="attrib-canvas" width="420" height="420"></canvas>
+            <div class="attrib-sidebar">
+                <div class="canvas-controls">
+                    <button id="attrib-clear-btn">Clear</button>
+                    <button id="attrib-btn">Attribute</button>
+                </div>
+                <div class="controls">
+                    <label>Top-K</label>
+                    <input id="attrib-k" type="number" value="3" min="1" max="128" style="width:70px" />
+                </div>
+                <div class="controls">
+                    <label>Load Sample</label>
+                    <div class="sample-row">
+                        <input id="attrib-sample-class" type="text" maxlength="1" value="A" />
+                        <input id="attrib-sample-index" type="number" value="0" min="0" />
+                        <button id="attrib-load-sample-btn">Load</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="attrib-results"></div>
+    </div>
+
+    <div class="tab-content" id="tab-mlp-weights">
+        <p style="text-align:center;color:#888;margin-bottom:16px">Per-neuron weight template + class selectivity + max-activating real images. Select layer to view.</p>
+        <div class="controls" style="text-align:center;margin-bottom:16px">
+            <label>Layer</label>
+            <select id="neuron-profile-layer">
+                <option value="1" selected>1 (hidden)</option>
+                <option value="2">2 (classifier)</option>
+            </select>
+        </div>
+        <div id="neuron-profile-features"></div>
+    </div>
+
+    <div class="tab-content" id="tab-mlp-sae">
+        <p style="color:#888;text-align:center;margin-bottom:20px">Per-feature class selectivity profiles + max-activating real images. Select expansion to view.</p>
+        <div class="controls" style="text-align:center;margin-bottom:20px">
+            <label>Layer</label>
+            <select id="sae-profile-layer">
+                <option value="1" selected>1</option>
+            </select>
+            <label>Expansion</label>
+            <select id="sae-profile-exp">
+                <option value="4" selected>4x</option>
+            </select>
+        </div>
+        <div id="sae-profile-stats" style="text-align:center;color:#888;margin-bottom:16px"></div>
+        <div id="sae-profile-features"></div>
+    </div>
+
+    <div class="tab-content" id="tab-sae-attrib">
+        <div class="attrib-top">
+            <canvas id="sae-canvas" width="420" height="420"></canvas>
+            <div class="attrib-sidebar">
+                <div class="canvas-controls">
+                    <button id="sae-clear-btn">Clear</button>
+                    <button id="sae-attrib-btn">Attribute</button>
+                </div>
+                <div class="controls">
+                    <label>Top-K</label>
+                    <input id="sae-k" type="number" value="10" min="1" max="50" style="width:70px" />
+                </div>
+                <div class="controls">
+                    <label>Load Sample</label>
+                    <div class="sample-row">
+                        <input id="sae-sample-class" type="text" maxlength="1" value="A" />
+                        <input id="sae-sample-index" type="number" value="0" min="0" />
+                        <button id="sae-load-sample-btn">Load</button>
+                    </div>
+                </div>
+                <div id="sae-status"></div>
+                <div class="results" id="sae-results"></div>
+            </div>
+        </div>
+        <div id="sae-features"></div>
+    </div>
+
+
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+{
+    "model": {
+        "hidden_dim1": 128,
+        "hidden_dim2": 0
+    },
+    "sae": {
+        "layer": 1,
+        "expansion": 4,
+        "l1_coeff": 1.5
+    }
+}
